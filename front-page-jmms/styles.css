@@ -7,7 +7,7 @@
   }
   100% {
     color: black;
-    margin-right: 145px;
+    margin-right: 120px;
   }
 }
 @keyframes move-right {
@@ -19,7 +19,7 @@
   }
   100% {
     color: black;
-    margin-left: 145px;
+    margin-left: 120px;
   }
 }
 @keyframes appear {
@@ -76,61 +76,64 @@
     background-color: black;
   }
 }
+@keyframes begin {
+  0% {
+    transform: translate(8px, 8px);
+    box-shadow: none;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    box-shadow: 8px 8px 8px rgb(153, 153, 153);
+    border: 1px solid black;
+  }
+}
 
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  /* background: rgb(86, 86, 223); */
-
-  /* background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 55%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent; */
 }
 
 .container {
-  position: relative;
-  z-index: -1;
-  bottom: 50px;
-  width: 100vw;
-  aspect-ratio: 1;
+  bottom: 100px;
+  width: 80vw;
+  height: 80vh;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  font-size: 150px;
+  font-size: 8em;
   font-weight: 700;
-  background-image: url("https://images.theconversation.com/files/223729/original/file-20180619-126566-1jxjod2.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop");
-  background-size: cover;
-  /* background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent; */
+  /* background-image: url("https://images.theconversation.com/files/223729/original/file-20180619-126566-1jxjod2.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"); */
+  background: #5a5a5a;
+  background-size: contain;
+  border-radius: 0.5em;
+  overflow: hidden;
+  animation: 1s begin 0.4s both;
+}
+
+.container .item {
+  transform: translateY(-50px);
 }
 
 .container .item .J {
-  animation: 1s move-left 1s both;
+  animation: 1s move-left 0.8s both;
+  transition: color 1s;
 }
 
 .container .item .S {
-  animation: 1s move-right 1s both;
+  animation: 1s move-right 0.8s both;
 }
 
 .container .item.MM {
   position: absolute;
   visibility: hidden;
-  animation: 0.5s appear 1.5s both;
+  animation: 0.5s appear 1.3s both;
 }
 
 .spinner {
@@ -144,18 +147,6 @@ body {
   border-radius: 100%;
   animation: spin 2s ease infinite;
   /* increase 2s cubic-bezier(0.1, -0.6, 0.2, 0) infinite; */
-}
-
-.wave {
-  position: absolute;
-  bottom: 150px;
-  width: 100vw;
-  height: 50px;
-  color: black;
-  font-size: 100px;
-  color: transparent;
-  text-decoration: overline wavy black;
-  animation: waves 2s ease infinite;
 }
 
 .bars {
@@ -208,4 +199,7 @@ body {
 .bar:nth-child(6) {
   animation-delay: 0.6s;
   /* animation-delay: 1.6s; */
+}
+.bar:hover {
+  animation: none;
 }

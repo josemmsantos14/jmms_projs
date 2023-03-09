@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="container item"></div>
+  <div class="container item"></div>
+  <div class="container item"></div>
+  <div class="container item"></div>
+</div>
+<div class="container">
+  <div class="container item"></div>
+  <div class="container item"></div>
+  <div class="container item"></div>
+</div>
+<div class="container">
+  <div class="container item"></div>
+  <div class="container item"></div>
+</div>
+<div class="container">
+  <div class="container item"></div>
+</div>
+
+
+<style>
+  @keyframes example {
+	from {
+		background-color: #F6E59C;
+		margin-right: 4px;
+	}
+	to {
+		background-color: red;
+		margin-right: 20px;
+	}
+    }
+
+  body{
+    background: #191919;
+  }
+  div .container{
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-bottom: 4px;
+    padding:0;
+    display: inline-grid;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  div .container.item{
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+    background: #F6E59C;
+    border-radius:50%;
+	animation-name: example;
+	animation-duration: 2s;
+  }
+  
+</style>

@@ -1,0 +1,230 @@
+:root {
+  --first-blue: #3f87a6;
+  --intermediate-color: #ebf8e1;
+  --first-orange: #f69d3c;
+  --body-bg: white;
+  --container-bg: rgba(128, 128, 128, 0.5);
+  --letter-color: #3f87a6;
+  --blink-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------------------------- ANIMATIONS ----------------------------------------------- */
+
+@keyframes move-left-j {
+  0% {
+    position: absolute;
+    transform: translateX(-3.5rem) scale(3.5);
+  }
+  5% {
+    color: var(--blink-color);
+  }
+  60% {
+    transform: translateX(-10rem);
+  }
+  100% {
+    position: static;
+    /* transform: none; */
+  }
+}
+@keyframes move-right-s {
+  0% {
+    position: absolute;
+    transform: translateX(-3.5rem) scale(3.5);
+  }
+  5% {
+    color: var(--blink-color);
+  }
+  60% {
+    transform: translateX(5rem);
+  }
+  100% {
+    position: static;
+    /* transform: none; */
+  }
+}
+@keyframes appear {
+  0% {
+    color: var(--blink-color);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes movement {
+  0%,
+  100% {
+    height: 100px;
+    /* background-color: white; */
+  }
+  50% {
+    height: 50px;
+    /* background-color: black; */
+  }
+}
+
+/* ----------------------------------------------------------------------------- */
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--body-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------------------------- LETTERS --------------------------------------- */
+.container {
+  bottom: 100px;
+  width: 80vw;
+  height: 80vh;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--container-bg);
+  background-size: contain;
+  color: var(--letter-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.letters {
+  width: 100%;
+  text-align: center;
+  font-family: Slab, monospace;
+  letter-spacing: -1rem;
+  font-size: 10rem;
+  font-weight: 600;
+}
+.letters span {
+  margin: 0;
+}
+.letters .J {
+  animation: 2.5s move-left-j 0.5s both;
+}
+.letters .M1,
+.letters .M2 {
+  opacity: 0;
+  animation: 1s appear 0.85s both;
+}
+.letters .S {
+  animation: 2.5s move-right-s 0.5s both;
+}
+
+/* ------------------------------------ BARS ------------------------------------------- */
+.bars {
+  position: absolute;
+  bottom: 100px;
+  width: 15vw;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  opacity: 0;
+  animation: 1.5s appear 1.8s both;
+}
+.bar {
+  width: 10px;
+  height: 50px;
+  background: linear-gradient(
+    var(--first-blue),
+    var(--intermediate-color),
+    var(--first-orange)
+  );
+  border-radius: 999px;
+  animation: movement 1s linear infinite;
+}
+.bar:nth-child(1),
+.bar:nth-child(11) {
+  animation-delay: 1.6s;
+  /* animation-delay: 0.6s; */
+}
+.bar:nth-child(2),
+.bar:nth-child(10) {
+  animation-delay: 1.4s;
+  /* animation-delay: 0.8s; */
+}
+.bar:nth-child(3),
+.bar:nth-child(9) {
+  animation-delay: 1.2s;
+  /* animation-delay: 1s; */
+}
+.bar:nth-child(4),
+.bar:nth-child(8) {
+  animation-delay: 1s;
+  /* animation-delay: 1.2s; */
+}
+.bar:nth-child(5),
+.bar:nth-child(7) {
+  animation-delay: 0.8s;
+  /* animation-delay: 1.4s; */
+}
+.bar:nth-child(6) {
+  animation-delay: 0.6s;
+  /* animation-delay: 1.6s; */
+}
+.bar:hover {
+  animation: none;
+}
+
+/* ---------------------------- NOT USED -------------------------------------------- */
+@keyframes begin {
+  0% {
+    transform: translate(8px, 8px);
+    box-shadow: none;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    box-shadow: 8px 8px 8px rgb(153, 153, 153);
+    border: 1px solid black;
+  }
+}
+.spinner {
+  position: absolute;
+  bottom: 150px;
+  width: 75px;
+  aspect-ratio: 1;
+  visibility: hidden;
+  border-top: 6px solid;
+  border-color: black;
+  border-radius: 100%;
+  animation: spin 2s ease infinite;
+  /* increase 2s cubic-bezier(0.1, -0.6, 0.2, 0) infinite; */
+}
+@keyframes increase {
+  0% {
+    border: none;
+    border-left: 6px solid black;
+  }
+  50% {
+    border-top: 6px solid black;
+  }
+  100% {
+    border-right: 6px solid black;
+  }
+}
+@keyframes spin {
+  100% {
+    color: black;
+    transform: rotate(1turn);
+    visibility: visible;
+  }
+}
+@keyframes waves {
+  0% {
+    transform: translateX(-60px);
+  }
+  50% {
+    transform: translatex(0px);
+  }
+  100% {
+    transform: translateX(-60px);
+  }
+}
